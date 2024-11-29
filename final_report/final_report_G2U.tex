@@ -112,7 +112,7 @@
 \makeatletter
 \renewcommand{\@makechapterhead}[1]{%
 	\vspace*{50pt} % Adjust vertical space before the chapter title
-	{\parindent \z@ \raggedleft \normalfont\Huge \scshape Chapter\bfseries~\thechapter\par} % "Chapter" in non-bold before number
+	{\parindent \z@ \raggedleft\textcolor{RedOrange}{\normalfont\Huge \scshape Chapter\bfseries~\thechapter} \par} % "Chapter" in non-bold before number
 	{\parindent \z@ \raggedleft \normalfont\Huge\bfseries\scshape #1\par} % Chapter title in bold on a separate line
 	\vspace{10pt} % Adjust vertical space after the chapter title
 }
