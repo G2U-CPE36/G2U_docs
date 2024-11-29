@@ -1,4 +1,6 @@
+\RequirePackage[l2tabu]{nag}	
 \documentclass[a4paper, 11pt, oneside, draft]{memoir}
+
 
 %add 'draft' to turn draft option on (see below)
 % Adding metadata:x
@@ -51,7 +53,7 @@
 % Font with math support: New Century Schoolbook
 %\usepackage{fouriernc}
 %\usepackage{}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 % \usepackage{mathptmx}
 % other usepackage fonts, recommended: lmodern, mathptmx
 % \usepackage{tgschola} % 
@@ -77,36 +79,44 @@
 % Chapter style (taken and slightly modified from Lars Madsen Memoir Chapter 
 % Styles document
 %\usepackage{calc,soul,fourier}
-\makeatletter 
-\newlength\dlf@normtxtw 
-\setlength\dlf@normtxtw{\textwidth} 
-\newsavebox{\feline@chapter} 
-\newcommand\feline@chapter@marker[1][4cm]{%
-	\sbox\feline@chapter{% 
-		\resizebox{!}{#1}{\fboxsep=1pt%
-			\colorbox{gray}{\color{white}\thechapter}% 
-	}}%
-	\rotatebox{90}{% 
-		\resizebox{%
-			\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}% 
-		{!}{\scshape\so\@chapapp}}\quad%
-	\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
-} 
-\newcommand\feline@chm[1][4cm]{%
-	\sbox\feline@chapter{\feline@chapter@marker[#1]}% 
-	\makebox[0pt][c]{% aka \rlap
-		\makebox[1cm][r]{\usebox\feline@chapter}%
-}}
+%\makeatletter 
+%\newlength\dlf@normtxtw 
+%\setlength\dlf@normtxtw{\textwidth} 
+%\newsavebox{\feline@chapter} 
+%\newcommand\feline@chapter@marker[1][4cm]{%
+%	\sbox\feline@chapter{% 
+%		\resizebox{!}{#1}{\fboxsep=1pt%
+%			\colorbox{gray}{\color{white}\thechapter}% 
+%	}}%
+%	\rotatebox{90}{% 
+%		\resizebox{%
+%			\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}% 
+%		{!}{\scshape\so\@chapapp}}\quad%
+%	\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
+%} 
+%\newcommand\feline@chm[1][4cm]{%
+%	\sbox\feline@chapter{\feline@chapter@marker[#1]}% 
+%	\makebox[0pt][c]{% aka \rlap
+%		\makebox[1cm][r]{\usebox\feline@chapter}%
+%}}
 %\makechapterstyle{daleifmodif}{
-	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so} 
-	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape} 
-	%\renewcommand\chapternamenum{} \renewcommand\printchaptername{} 
-	%\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} 
-	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
-	%\renewcommand\printchaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
-	%} 
-\makeatother 
-\chapterstyle{daleifmodif}
+%	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so} 
+%	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape} 
+%%	\renewcommand\chapternamenum{} \renewcommand\printchaptername{} 
+%%	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} 
+%%	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
+%%	\renewcommand\printcthaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
+%	} 
+%\makeatother 
+%\chapterstyle{daleifmodif}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+	\vspace*{50pt} % Adjust vertical space before the chapter title
+	{\parindent \z@ \raggedleft \normalfont\Huge \scshape Chapter\bfseries~\thechapter\par} % "Chapter" in non-bold before number
+	{\parindent \z@ \raggedleft \normalfont\Huge\bfseries\scshape #1\par} % Chapter title in bold on a separate line
+	\vspace{10pt} % Adjust vertical space after the chapter title
+}
+\makeatother
 
 %
 % UoB guidelines:
@@ -129,7 +139,7 @@
 % instead of
 % \includegraphics{chapters/brewing/images/figure1}
 \usepackage{import}
-
+\usepackage{fancyhdr}
 % Add other packages needed for chapters here. For example:
 \usepackage{lipsum}					%Needed to create dummy text
 \usepackage{amsfonts} 					%Calls Amer. Math. Soc. (AMS) fonts
@@ -142,7 +152,7 @@
 \usepackage{layouts}					%Layout diagrams
 \usepackage{graphicx}					%Calls figure environment
 \usepackage{longtable,rotating}			%Long tab environments including rotation. 
-\usepackage[applemac]{inputenc}			%Needed to encode non-english characters 
+\usepackage[applemac, utf8]{inputenc}			%Needed to encode non-english characters 
 %directly for mac
 \usepackage{colortbl}					%Makes coloured tables
 \usepackage{wasysym}					%More math symbols
@@ -391,8 +401,7 @@ sort&compress]{natbib}		%Calls bibliography commands
 	\clearpage
 	
 	\mainmatter
-	
-	\import{chapters/ch-01/}{chap_1.tex} % TEMP
+	\import{chapters/ch-01/}{chap_1} % TEMP
 	
 %	\includegraphics[width=0.4\textwidth]{frontmatter/KMUTT_CI.png}
 %	
