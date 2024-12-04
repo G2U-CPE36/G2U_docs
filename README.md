@@ -2,7 +2,9 @@
 
 TODO: Include diagrams, figures, charts, and other necessary details (Swagger), other than TeX report
 
-## Setup (Linux)
+## Setup
+
+### Linux (`apt`)
 
 Here's the basic guide for installation and setup on Ubuntu/Debian.
 
@@ -38,6 +40,14 @@ PDF Viewer: Internal PDF Viewer (Embedded)
 Default bibliography tool: BibTeX
 ```
 
-## Setup (Overleaf)
+### Online - Overleaf
 
-There's nothhing much to do in terms of setup for overleaf. Just using PDFLaTeX would be fine in most of the cases.
+There's nothhing much to do in terms of setup for overleaf. Just upload the source files using PDFLaTeX would be fine in most of the cases.
+
+### macOS and Windows
+
+Install MacTeX from https://www.tug.org/mactex/. And, find the TeXStudio version suitable to start editing (download here: https://www.texstudio.org/#download).
+
+For Windows, need to install TexStudio and then MikTex (link: https://miktex.org/).
+
+Install few libraries as needed and you're good to go.
