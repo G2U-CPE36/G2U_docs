@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+
+actor "Customer" as C
+actor "Payment Gateway" as PG
+
+rectangle "G2U" {
+    usecase "Browse Products" as BP
+    usecase "View Product Details" as VPD
+    usecase "Manage User Profile" as UP
+    usecase "Edit Profile" as EP
+    usecase "View Linked Products" as LP
+    usecase "View My Purchases" as VP
+    usecase "Manage Posts" as MP
+    usecase "Post Want-to-Buy" as WTB
+    usecase "Post Want-to-Sell" as WTS
+    usecase "Make a Payment" as MPay
+}
+
+C --> BP
+BP --> VPD
+
+C --> UP
+UP --> EP
+UP --> LP
+UP --> VP
+
+C --> MP
+MP --> WTB
+MP --> WTS
+
+C --> MPay
+MPay --> PG
+@enduml
