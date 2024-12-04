@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+
+actor "Buyer" as Buyer
+actor "Seller" as Seller
+actor "Payment Gateway" as PaymentGateway
+
+rectangle "G2U" {
+    usecase "Browse Products" as BrowseProduct
+    usecase "View Product Details" as ViewProduct
+    usecase "User Profile" as UserProfile
+    usecase "Edit Profile" as EditProfile
+    usecase "View Linked Products" as LinkedProducts
+    usecase "View My Purchases" as MyPurchases
+    usecase "Manage Posts" as ManagePosts
+    usecase "Post Want-to-Buy" as WantToBuy
+    usecase "Post Want-to-Sell" as WantToSell
+    usecase "Make a Payment" as MakePayment
+}
+
+Buyer--> BrowseProduct
+Buyer --> UserProfile
+Buyer --> ManagePosts
+
+Seller --> UserProfile
+Seller --> ManagePosts
+
+BrowseProduct --> ViewProduct
+
+ManagePosts--> WantToBuy
+ManagePosts--> WantToSell
+
+UserProfile -->LinkedProducts
+UserProfile -->EditProfile
+UserProfile -->MyPurchases
+
+WantToBuy -->MakePayment
+MakePayment -->PaymentGateway
+@enduml
