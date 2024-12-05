@@ -1,0 +1,1173 @@
+{
+	"info": {
+		"_postman_id": "f2754e15-a55a-4d43-bf66-0202fd2e2f46",
+		"name": "G2U",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35987887"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"newuser2\",\r\n  \"email\": \"newuser2@example.com\",\r\n  \"password\": \"securepassword\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/register",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"newuser@example.com\",\r\n  \"password\": \"securepassword\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/signin",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/list",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"phone\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/updateProfile",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/11",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 4,\r\n  \"productId\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/like",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Like",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/getLike/4",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"getLike",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/users/myPost/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"users",
+								"myPost",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserAddress",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 2,\r\n  \"province\": \"Bangkok\",\r\n  \"district\": \"Phaya Thai\",\r\n  \"subDistrict\": \"Ratchathewi\",\r\n  \"postcode\": \"10400\",\r\n  \"address\": \"123 Sukhumvit Rd, 5th Floor\",\r\n  \"note\": \"Near the BTS station\",\r\n  \"receiverName\": \"John Doe\",\r\n  \"phone\": \"0891234567\",\r\n  \"isDefault\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/address/create",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"address",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/address/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"address",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/address/18",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"address",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 17,\r\n  \"province\": \"Bangkok\",\r\n  \"district\": \"Phaya Thai\",\r\n  \"subDistrict\": \"Ratchathewi\",\r\n  \"postcode\": 10400,\r\n  \"address\": \"123 Sukhumvit Rd, 5th Floor\",\r\n  \"note\": \"Near the BTS station\",\r\n  \"receiverName\": \"John Doe\",\r\n  \"phone\": \"0891234567\",\r\n  \"isDefault\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/address/13",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"address",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productImage",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1efb23c3-88d7-4030-a613-36b481ed7675",
+										"postman-cloud:///1efac120-02ad-42d0-b0c8-5d8a58494165"
+									]
+								},
+								{
+									"key": "productName",
+									"value": "Iphone",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "productDescription",
+									"value": "swgagagsasgdgdgsagdas",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "999",
+									"type": "text"
+								},
+								{
+									"key": "condition",
+									"value": "New",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/create",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/getproducts",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"getproducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/12",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/products/2",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/products/34",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"products",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/products/33/toggle",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"products",
+								"33",
+								"toggle"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OpenOrder",
+			"item": [
+				{
+					"name": "Create Open Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productName",
+									"value": "Iphone",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "productDescription",
+									"value": "swgagagsasgdgdgsagdas",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "999",
+									"type": "text"
+								},
+								{
+									"key": "productImage",
+									"type": "file",
+									"src": "postman-cloud:///1efb226c-9c3d-42d0-a15c-43cfb4768130"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/openorders/create",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"openorders",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/openorders/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"openorders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/openorders/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"openorders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/openorders/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"openorders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"userId\":1,\r\n\"sellerId\":2,\r\n\"productId\":13,\r\n\"addressId\":1,\r\n\"orderStatus\": \"PENDING\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/order/orders",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"order",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newStatus\": \"SHIPPED\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/order/orders/1/status",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"order",
+								"orders",
+								"1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/order/orders/2",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"order",
+								"orders",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ไม่มี ใช้เป็น Cencle",
+							"host": [
+								"ไม่มี ใช้เป็น Cencle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/order/",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Userid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/order/user/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"order",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main Page",
+			"item": [
+				{
+					"name": "Main page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/mainproduct/products?page=1&limit=10\n",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"mainproduct",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Min Max",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/mainproduct/products?minPrice=900&maxPrice=1000&page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"mainproduct",
+								"products"
+							],
+							"query": [
+								{
+									"key": "minPrice",
+									"value": "900"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/mainproduct/search?search=swgagagsasgdgdgsagdas&page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"mainproduct",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "swgagagsasgdgdgsagdas"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "Add-Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,             \r\n  \"cardNumber\": \"1234567890123456\",  // The 16-digit card number\r\n  \"expiryDate\": \"12/25\",   // The expiry date in MM/YY format\r\n  \"cvv\": \"123\",            // The CVV (3 digits)\r\n  \"isDefault\": true         \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/cards/add-card",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"cards",
+								"add-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Card By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/cards/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"cards",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Card",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/cards/delete-card/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"cards",
+								"delete-card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Default",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/cards/set-default/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"cards",
+								"set-default",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank",
+			"item": [
+				{
+					"name": "Add Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,               \r\n  \"accountNumber\": \"123456\",  // The bank account number\r\n  \"bankName\": \"Bank Name\",    // The name of the bank\r\n  \"accountHolder\": \"John Doe\", // The name of the account holder\r\n  \"isDefault\": true           // Whether the account is the default account (true/false)\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/bankAccounts/add-bank",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"bankAccounts",
+								"add-bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/bankAccounts/banks/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"bankAccounts",
+								"banks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://chawit.thddns.net:9790/api/bankAccounts/delete-bank/1",
+							"protocol": "http",
+							"host": [
+								"chawit",
+								"thddns",
+								"net"
+							],
+							"port": "9790",
+							"path": [
+								"api",
+								"bankAccounts",
+								"delete-bank",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
