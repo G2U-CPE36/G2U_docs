@@ -1,0 +1,216 @@
+@startuml
+class User {
+    + user_id : INT
+    + first_name : VARCHAR(255)
+    + last_name : VARCHAR(255)
+    + username : VARCHAR(255)
+    + email : VARCHAR(255)
+    + phone : BIGINT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createUser()
+    + getUser()
+    + updateUser()
+    + deleteUser()
+}
+
+class Favorite {
+    + favorite_id : INT
+    + user_id : INT
+    + favorite_item : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createFavorite()
+    + getFavorite()
+    + updateFavorite()
+    + deleteFavorite()
+}
+
+class UserLog {
+    + user_log_id : INT
+    + user_id : INT
+    + edit_type : INT
+    + edit_value : INT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createUserLog()
+    + getUserLog()
+    + updateUserLog()
+    + deleteUserLog()
+}
+
+class Auction {
+    + auction_id : INT
+    + user_id : INT
+    + product_id : INT
+    + start_price : INT
+    + minimum_bid : INT
+    + start : INT
+    + end : INT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createAuction()
+    + getAuction()
+    + updateAuction()
+    + deleteAuction()
+}
+
+class OpenOrder {
+    + open_order_id : INT
+    + user_id : INT
+    + product_name : TEXT
+    + category_id : INT
+    + product_description : TEXT
+    + product_image : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createOpenOrder()
+    + getOpenOrder()
+    + updateOpenOrder()
+    + deleteOpenOrder()
+}
+
+class Product {
+    + product_id : INT
+    + user_id : INT
+    + product_name : TEXT
+    + category_id : INT
+    + product_description : TEXT
+    + product_image : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createProduct()
+    + getProduct()
+    + updateProduct()
+    + deleteProduct()
+}
+
+class UserAddress {
+    + address_id : INT
+    + user_id : INT
+    + province : VARCHAR(255)
+    + district : VARCHAR(255)
+    + sub_district : VARCHAR(255)
+    + postcode : INT
+    + address : TEXT
+    + note : TEXT
+    + receiver_name : VARCHAR(255)
+    + phone : BIGINT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createUserAddress()
+    + getUserAddress()
+    + updateUserAddress()
+    + deleteUserAddress()
+}
+
+class Category {
+    + category_id : INT
+    + category_name : VARCHAR(255)
+    + detail : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createCategory()
+    + getCategory()
+    + updateCategory()
+    + deleteCategory()
+}
+
+class WalletLog {
+    + wallet_log_id : INT
+    + wallet_id : INT
+    + transaction_type : INT
+    + value : INT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createWalletLog()
+    + getWalletLog()
+    + updateWalletLog()
+    + deleteWalletLog()
+}
+
+class UserPayment {
+    + payment_id : INT
+    + user_id : INT
+    + payment_type : INT
+    + data1 : TEXT
+    + data2 : TEXT
+    + data3 : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createUserPayment()
+    + getUserPayment()
+    + updateUserPayment()
+    + deleteUserPayment()
+}
+
+class UserWallet {
+    + wallet_id : INT
+    + user_id : INT
+    + current_value : INT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createUserWallet()
+    + getUserWallet()
+    + updateUserWallet()
+    + deleteUserWallet()
+}
+
+class AuctionLog {
+    + auction_log_id : INT
+    + user_id : INT
+    + auction_id : INT
+    + bid_price : INT
+    + timestamp : TIMESTAMP
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createAuctionLog()
+    + getAuctionLog()
+    + updateAuctionLog()
+    + deleteAuctionLog()
+}
+
+class Verification {
+    + verification_id : INT
+    + user_id : INT
+    + citizen_id : BIGINT
+    + verification_status : INT
+    + picture : TEXT
+    + created_on : TIMESTAMP
+    + updated_on : TIMESTAMP
+    ---
+    + createVerification()
+    + getVerification()
+    + updateVerification()
+    + deleteVerification()
+}
+
+User "1..*" --> "*" Favorite : "user_id"
+User "1..*" --> "*" UserLog : "user_id"
+User "1..*" --> "*" Auction : "user_id"
+User "1..*" --> "*" OpenOrder : "user_id"
+User "1..*" --> "*" UserAddress : "user_id"
+User "1..*" --> "*" UserPayment : "user_id"
+User "1..*" --> "*" UserWallet : "user_id"
+User "1..*" --> "*" Verification : "user_id"
+
+UserWallet "1..*" --> "*" WalletLog : "wallet_id"
+
+Auction "1..*" --> "*" AuctionLog : "auction_id"
+
+Product "1..*" --> "*" Auction : "product_id"
+Product "1..*" --> "*" OpenOrder : "category_id"
+Product "1..*" --> "*" Category : "category_id"
+@enduml
