@@ -8,7 +8,7 @@ participant "Database" as DB
 Seller -> UI: Update post\n details
 UI -> Web: PUT /post/{postId}
 Web -> App: Validate\n updated data
-App -> DB: UPDATE Posts\n SET fields=updatedData\n WHERE postId={postId}
+App -> DB: UPDATE Posts\n SET fields=updatedData\n WHERE postId={postId};
 DB --> App: Acknowledgment
 App --> Web: Post\n updated
 Web --> UI: Update\n confirmation

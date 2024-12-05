@@ -11,7 +11,7 @@ UI -> Web: POST /payment
 Web -> App: Initiate payment\n process
 App -> PaymentGateway: Request\n payment
 PaymentGateway --> App: Payment status\n (Success/Failure)
-App -> DB: UPDATE Order\n SET status='paid'\n WHERE orderId={id}
+App -> DB: UPDATE Order\n SET status='paid'\n WHERE orderId={id};
 DB --> App: Acknowledgment
 App --> Web: Payment\n confirmation
 Web --> UI: Payment\n confirmation
