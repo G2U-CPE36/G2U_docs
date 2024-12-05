@@ -1,0 +1,19 @@
+@startuml
+actor Buyer
+participant "UI" as UI
+participant "Web Server" as Web
+participant "Payment Gateway" as PaymentGateway
+participant "App Server" as App
+participant "Database" as DB
+
+Buyer -> UI: Proceed to\n Payment
+UI -> Web: POST /payment
+Web -> App: Initiate payment\n process
+App -> PaymentGateway: Request\n payment
+PaymentGateway --> App: Payment status\n (Success/Failure)
+App -> DB: UPDATE Order\n SET status='paid'\n WHERE orderId={id}
+DB --> App: Acknowledgment
+App --> Web: Payment\n confirmation
+Web --> UI: Payment\n confirmation
+UI --> Buyer: Payment\n successful
+@enduml

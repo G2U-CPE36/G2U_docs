@@ -1,0 +1,16 @@
+@startuml
+actor Seller
+participant "UI" as UI
+participant "Web Server" as Web
+participant "App Server" as App
+participant "Database" as DB
+
+Seller -> UI: Fill and Submit\n Post Form
+UI -> Web: POST /sell-post
+Web -> App: Validate\n post data
+App -> DB: INSERT\n INTO Posts\n VALUES(postData);
+DB --> App: Acknowledgment
+App --> Web: Post created
+Web --> UI: Post\n confirmation
+UI --> Seller: Display\n post confirmation
+@enduml

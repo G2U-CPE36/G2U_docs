@@ -1,0 +1,16 @@
+@startuml
+actor Buyer
+participant "UI" as UI
+participant "Web Server" as Web
+participant "App Server" as App
+participant "Database" as DB
+
+Buyer -> UI: Click on\n Product
+UI -> Web: GET /product/{id}
+Web -> App: Fetch product\n details
+App -> DB: SELECT * FROM Products\n WHERE productId={id}
+DB --> App: Product details
+App --> Web: Product details
+Web --> UI: Product details
+UI --> Buyer: Display\n product details
+@enduml
