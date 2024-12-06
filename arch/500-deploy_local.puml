@@ -1,0 +1,22 @@
+@startuml
+node "Frontend" as Frontend {
+  [React JS + Tailwind CSS]
+  note right of Frontend: Hosted on Vercel
+}
+
+node "Router" as Router {
+  [Port Forwarding]
+}
+
+node "Local Server" as LocalServer {
+  [Express.js + Prisma ORM]
+}
+
+node "Database" as Database {
+  [PostgreSQL]
+}
+
+Frontend -right-> Router : HTTP Request
+Router -down-> LocalServer : Forwarded Request
+LocalServer -left-> Database : Database Query
+@enduml

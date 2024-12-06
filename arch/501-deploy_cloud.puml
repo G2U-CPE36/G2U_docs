@@ -1,0 +1,36 @@
+@startuml
+cloud "Vercel" as Vercel {
+  [Frontend: React JS + Tailwind CSS]
+}
+
+node "Load Balancer" as NGINX {
+  [NGINX Reverse Proxy]
+  [Load Balancer]
+}
+
+node "Auth Server" as AuthServer {
+  [Express.js]
+  [Authentication Service]
+}
+
+node "App Server" as AppServer {
+  [Express.js]
+  [Business Logic]
+}
+
+database "Primary DB" as PrimaryDB {
+  [PostgreSQL (Write)]
+}
+
+database "Read Replica" as ReplicaDB {
+  [PostgreSQL (Read)]
+}
+
+Vercel -down-> NGINX : HTTP Request
+NGINX -right-> AuthServer : Authentication Requests
+NGINX -down-> AppServer : Business Logic Requests
+
+AppServer -down-> PrimaryDB : Write Queries
+PrimaryDB -right-> ReplicaDB : Replication
+AppServer -right-> ReplicaDB : Read Queries
+@enduml
