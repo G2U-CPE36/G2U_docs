@@ -4,12 +4,102 @@
 %
 \chapter{Implementation}
 
-\section{Low Code (Figma)}
-
 \section{Prototyping}
+
+High fidelity design tools (Miro and Figma) were used through the entirety of the project. The public links and deliverables will be provided alongside this report.
 
 \section{Coding}
 
+Front end team implements code in the React components based architecture.
+
+\begin{lstlisting}[language=JavaScript, caption={Example of React component}]
+export default function ProductCard({ product, layoutType = "default" }) {
+	const handleImageError = (e) => {
+		e.target.src = "/pic/default.jpg" // Fallback image
+	}
+	const navigate = useNavigate()
+	
+	// Function to mark a product as favorite
+	const markAsFavorite = async (productId) => {
+		try {
+			const userId = parseInt(localStorage.getItem("userId"), 10) 
+			// Replace with actual userId logic
+			console.log(userId)
+			console.log(productId)
+			const response = await axios
+			.post("http://chawit.thddns.net:9790/api/users/like"
+			, {
+				productId,
+				userId,
+			})
+			console.log("Product marked as favorite:", response.data)
+			// Optionally update the UI or state to reflect the favorite status
+		} catch (error) {
+			console.error("Error marking product as favorite:", error)
+		}
+	}
+//...
+\end{lstlisting}
+
+
+Back end team implements code in MVC (Model View Controller) model. Prisma ORM allows use to model our class diagram and update changes without need for having to configure individual SQL commands by themselves.
+
+\begin{lstlisting}[language=Go, caption={Model Example}]
+model Auction {
+	auctionId   Int          @id @default(autoincrement())
+	userId      Int
+	productId   Int
+	startPrice  Int
+	minimumBid  Int
+	start       DateTime // Use DateTime for start time
+	end         DateTime // Use DateTime for end time
+	User        User         @relation(fields: [userId], references: [userId])
+	AuctionLogs AuctionLog[] // Add this line for the relation
+}
+\end{lstlisting}
+
+The view is produced by the React component. And here is the example for the controller:
+
+\begin{lstlisting}[language=JavaScript, caption={Controller setup example}]
+exports.createProduct = async (req, res) => {
+	const {
+		productName,
+		categoryId,
+		productDescription,
+		productImage,
+		userId,
+		price,
+		condition,
+	} = req.body;
+
+	// ...
+	
+	return res.status(201).json(product);
+	// ...
+\end{lstlisting}
+
 \section{Systems Integration}
+
+Postman was the platform where both front end and back end team use to validate new API changes.
+
+Here's an example for request and response on curl:
+
+
+\begin{lstlisting}[label=curl, language=JavaScript, caption={curl reponse example}]
+	# cURL Request
+	curl -X GET https://api.example.com/data \
+	-H "Authorization: Bearer YOUR_TOKEN" \
+	-H "Content-Type: application/json"
+	
+	# cURL Response
+	{
+		"status": "success",
+		"data": {
+			"id": 1,
+			"name": "Example Data",
+			"description": "This is an example response"
+		}
+	}
+\end{lstlisting}
 
 \clearpage
