@@ -4,6 +4,7 @@ left to right direction
 actor "Buyer" as Buyer
 actor "Seller" as Seller
 actor "Payment Gateway" as PaymentGateway
+actor "Shipping Company" as ShippingCompany
 
 rectangle "G2U" {
     usecase "Browse Products" as BrowseProduct
@@ -19,6 +20,7 @@ rectangle "G2U" {
     usecase "Delete post" as DeletePost
     usecase "Update post" as UpdatePost
     usecase "Posts" as Posts
+    usecase "Order System" as OrderSystem
 }
 
 Buyer--> BrowseProduct
@@ -38,10 +40,12 @@ ManagePosts --> Posts
 Posts--> WantToBuy
 Posts--> WantToSell
 
-UserProfile -->LikedProducts
-UserProfile -->EditProfile
-UserProfile -->MyPurchases
+UserProfile --> LikedProducts
+UserProfile --> EditProfile
+UserProfile --> MyPurchases
 
-WantToBuy -->MakePayment
-MakePayment -->PaymentGateway
+WantToBuy --> MakePayment
+WantToBuy  --> OrderSystem
+OrderSystem --> ShippingCompany
+MakePayment --> PaymentGateway
 @enduml
