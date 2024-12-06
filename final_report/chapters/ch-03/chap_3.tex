@@ -6,19 +6,32 @@
 
 \section{Elicitation Techniques}
 
-\textit{TODO: Before analyzing the system, various technique are employed to gather its requirements.}
-
-\textit{TODO: Explain:}
+To validate our hypothesis with market needs and quantize the requirements, we applied the elicitation techniques as follows.
 
 \begin{itemize}
-	\item Interviews
-	\item Questionnaires
-	\item Workshops
+	\item Data Analysis
+	\item Market Study
 	\item Observation
-	\item Prototyping
+	\item Prototyping and User Review
 \end{itemize}
 
 \section{Stakeholders}
+
+Direct stakeholder acting in software include:
+
+\begin{enumerate}
+	\item Customers (Buyers and Sellers)
+	\item Payment Gateway
+\end{enumerate}
+
+Here are the indirect stakeholder that have influence over software development, but not the direct actors in the system:
+
+\begin{enumerate}
+	\item Donation and Charity Campaigns
+	\item Authorized Resellers
+	\item Advertisement Companies
+	\item Shipping providers
+\end{enumerate}
 
 \section{System Analysis - Data Flow}
 
@@ -37,34 +50,50 @@ For software engineering observers, it is evident that use case diagram (in the 
 
 \section{Functional Design}
 
-\textit{TODO: Here are some functional requirements (example)}
+Here are some functional requirements prior to user's evaluation and feedback resolution. This based on market validation of our brainstormed hypothesis.
 
-\begin{itemize}
-	\item User Registration
-	\item Tutor Scheduling and Availability
-	\item Online class
-\end{itemize}
+\begin{enumerate}
+	\item Internal escrow system to tackle scam issues.
+	\item User management.
+	\item Payment and shipping.
+\end{enumerate}
 
-\textit{TODO: Translate this to user story when doing Kanban}
+During our application of Agile methodology, we can use these use case to track the progress based on user stories. For example, Browse Product can be a user story. Therefore, we can track the progress of certain specific elements from requirement to coding and document in this manner.
 
-\textit{TODO: Each functional requirements should have details and implementation in description list}
+%\textit{TODO: Each functional requirements should have details and implementation in description list}
+
+This is the tentative use case diagram (figure ~\ref{fig:usecase}) which evolved as a result of validating our hypothesis throughout continuous user feedback and CI/CD practice.
 
 \section{Other Non-functional requirements}
 
-\textit{TODO: Quantize these requirements}
-
-\begin{itemize}
-	\item Scalability
-	\item System Availability
-	\item Security
-	\item Usability
-	\item Performance
-\end{itemize}
+\begin{description}
+	\item[Scalability] 1000 concurrent users, with minimal architectural changes.
+	\item[Availability] 99.5\% uptime (43.8 hours of annual downtime)
+	\item[Security] Oath 2.0 with 256-bit encryption, implement VPC rules on database access.
+	\item[Usability checker] 3 testing sessions with 5-10 users in MVP phase.
+	\item[Performance] $< 200 ms$ for 50th percentile on server, $< 100 ms$ per query on database without performance degradation.
+\end{description}
 
 \subsection{Mandated constraints}
 
-Examples include: Economics
+ The system must remain cost-effective during initial development and deployment, adhering to the constraints of a lean startup model. Expenses should prioritize scalability and maintainability, with a focus on minimizing fixed costs during the early stages. Therefore, incremented funding methodology allows us do financial checks over every incremental investment per feature addition or improvement.
 
 \subsection{Regulatory compliance}
+
+Briefly here are the regulatory issues we have encountered so far in the Thai business environment:
+
+\begin{description}
+	\item[ETA] ETA compiles data security requirements.
+	\item[PDPA] safeguards user data.
+	\item[Tax compliance] facilitate tax invoicing which is important for us and especially our B2B customers.
+\end{description}
+
+In the European side,
+
+\begin{description}
+	\item[GDPR] implements data protection rules especially in EU jurisdictions.
+	\item[E-commerce directives] safeguards customer protection.
+	\item[Fiscal obligations] to comply with local laws, including VAT collection and reporting.
+\end{description}
 
 \clearpage
