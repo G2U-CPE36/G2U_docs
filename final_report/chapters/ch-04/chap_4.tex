@@ -8,17 +8,21 @@
 
 \subsection{Class Diagram}
 
-\textit{TODO: class diagram}
+The rational behind this implementation is to have fastest and the most iterable base for our back-end. It blends the OOAD concept to adapt with relational design that is readily deployed on PostgreSQL database.
 
-\subsection{Components Diagram}
+% TODO: paste class diagram
 
 \subsection{Sequence Diagram}
+
+The rational behind our sequence diagram is simple. We want to visualize and communicate how every machine components interacts in terms of interaction and data transfer in sequence of individual operations.
+
+% TODO: paste a lot of sequence diagrams
 
 \subsubsection{Limitations}
 
 \begin{description}
-	\item[Unconventional implementation:] Coding syntax such as including SQL as part of modeling app sequences. This is not part of best practice as specified in the UML specifications. However, it serves us more effectively as the means of communication for different technical sub-teams (front end, backend and the deployment team). Our rationale behind this was to address the knowledge gap our current development team has. For the further updates, we intend to move up to the standard specification as knowledge gap is shortened and the backend team is ready to receive requirements inputs using the top level description.
-	\item[Less flexibility to stack changes] For the current timeline, we chose the backend stack to adapt changes as quickly as possible. However, if the requirements changes results in change of technical stack (for example, we switch from HTTP REST \& SQL interface to GraphQL \&gRPC); our specification for interaction sequences will be obsolete. The SQL-inspired specification cannot address changes to other modern day NoSQL schema (such as document store, column store). Therefore, if we change the database structure the specifics in the sequence diagram regarding SQL interface should be changed.
+	\item[Unconventional implementation:] Coding syntax such as including SQL as part of modeling app sequences. This is not part of best practice as specified in the UML specifications. However, it serves us more effectively as the means of communication for different technical sub-teams (front end, back-end and the deployment team). Our rationale behind this was to address the knowledge gap our current development team has. For the further updates, we intend to move up to the standard specification as knowledge gap is shortened and the back-end team is ready to receive requirements inputs using the top level description.
+	\item[Less flexibility to stack changes] For the current timeline, we chose the back-end stack to adapt changes as quickly as possible. However, if the requirements changes results in change of technical stack (for example, we switch from HTTP REST \& SQL interface to GraphQL \&gRPC); our specification for interaction sequences will be obsolete. The SQL-inspired specification cannot address changes to other modern day No-SQL schema (such as document store, column store). Therefore, if we change the database structure the specifics in the sequence diagram regarding SQL interface should be changed.
 \end{description}
 
 \section{Systems Design}
@@ -29,6 +33,14 @@
 
 \subsection{Demonstration model}
 
+% TODO: plantuml for demonstration model (for prototyping)
+
+This is a minimal base on how our system is deployed and serving the user.
+
 \subsection{Full scale production model}
+
+% TODO: plantuml for demonstration model (for deployment with scaling options)
+
+Upon reaching the designated transaction volume, we intend to migrate our application to a dedicated cloud service. Here's the tentative plan that allows us to deploy in cloud and scale.
 
 \clearpage
