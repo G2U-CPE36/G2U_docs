@@ -303,8 +303,8 @@ sort&compress]{natbib}		%Calls bibliography commands
 % math code and graph stuff
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
-\usepackage{listings}
 \usepackage{minted}
+\usepackage{listings}
 \usepackage{tikz-qtree}
 \usepackage{mdframed}
 \usepackage[shortlabels]{enumitem}
@@ -312,7 +312,7 @@ sort&compress]{natbib}		%Calls bibliography commands
 \usepackage{etoolbox}
 \usepackage{tikz}
 \usetikzlibrary{decorations}
-\usepackage{lmodern} 
+\usepackage{lmodern}
 
 \renewcommand\listoflistingscaption{Source Code Listings}
 \usepackage[scaled=0.95]{inconsolata}
@@ -384,45 +384,45 @@ sort&compress]{natbib}		%Calls bibliography commands
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	\frontmatter
-	\pagenumbering{roman}
-	\input{frontmatter/title} % TEMP
+\frontmatter
+\pagenumbering{roman}
+\input{frontmatter/title} % TEMP
 %	\input{frontmatter/versioning} % TEMP
-	\input{frontmatter/abstract} % TEMP
+\input{frontmatter/abstract} % TEMP
 %	\input{frontmatter/acknowledgment} % TEMP
-	\input{frontmatter/terminologies}
+\input{frontmatter/terminologies}
 %	\maketitle
-	\clearpage
-	\tableofcontents*
-	\clearpage
+\clearpage
+\tableofcontents*
+\clearpage
 %	\listoftables
-	\lstlistoflistings
+\lstlistoflistings
 %	\clearpage
-	\listoffigures
-	\clearpage
+\listoffigures
+\clearpage
 
-	\mainmatter
-	\part{Project Description}
-	\import{chapters/ch-01/}{chap_1} % Background
-	\import{chapters/ch-02/}{chap_2} % Project Framework
-	\part{Requirements}
-	\import{chapters/ch-03/}{chap_3} % Requirements Elicitation
+\mainmatter
+\part{Project Description}
+\import{chapters/ch-01/}{chap_1} % Background
+\import{chapters/ch-02/}{chap_2} % Project Framework
+\part{Requirements}
+\import{chapters/ch-03/}{chap_3} % Requirements Elicitation
 %	\import{chapters/ch-03/}{chap_3_1}
-	\part{Design and Development}
-	\import{chapters/ch-04/}{chap_4} % System Design
-	\import{chapters/ch-05/}{chap_5} % Implementation
-	\part{Test and Evaluation}
-	\import{chapters/ch-06/}{chap_6} % Evaluation of outcomes
-	\import{chapters/ch-07/}{chap_7} % Conclusion
+\part{Design and Development}
+\import{chapters/ch-04/}{chap_4} % System Design
+\import{chapters/ch-05/}{chap_5} % Implementation
+\part{Test and Evaluation}
+\import{chapters/ch-06/}{chap_6} % Evaluation of outcomes
+\import{chapters/ch-07/}{chap_7} % Conclusion
 
 %	\includegraphics[width=0.4\textwidth]{frontmatter/KMUTT_CI.png}
 %
-	\backmatter
-	\appendix
-	\printindex
-	\refstepcounter{chapter}
-	\renewcommand{\bibname}{References}
+\backmatter
+\appendix
+\printindex
+\refstepcounter{chapter}
+\renewcommand{\bibname}{References}
 %	\nocite{*}
-	\bibliographystyle{unsrtnat}
-	\bibliography{bibliography.bib} % TEMP
+\bibliographystyle{unsrtnat}
+\bibliography{bibliography.bib} % TEMP
 \end{document}
