@@ -12,7 +12,7 @@ High fidelity design tools (Miro and Figma) were used through the entirety of th
 
 Front end team implements code in the React components based architecture.
 
-\begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript, caption={React Based Components example (View for MVC architecture)}]
 export default function ProductCard({ product, layoutType = "default" }) {
 	const handleImageError = (e) => {
 		e.target.src = "/pic/default.jpg" // Fallback image
@@ -44,7 +44,7 @@ export default function ProductCard({ product, layoutType = "default" }) {
 
 Back end team implements code in MVC (Model View Controller) model. Prisma ORM allows use to model our class diagram and update changes without need for having to configure individual SQL commands by themselves.
 
-\begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript, caption={Model for MVC architecture}]
 model Auction {
 	auctionId   Int          @id @default(autoincrement())
 	userId      Int
@@ -61,7 +61,7 @@ model Auction {
 
 The view is produced by the React component. And here is the example for the controller:
 
-\begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript, caption={Controller for MVC architecture}]
 exports.createProduct = async (req, res) => {
 	const {
 		productName,
@@ -85,7 +85,7 @@ Postman was the platform where both front end and back end team use to validate 
 Here's an example for request and response on curl:
 
 
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, caption={Example for API integration}]
 # cURL Request
 curl -X GET https://api.example.com/data \
 -H "Authorization: Bearer YOUR_TOKEN" \
