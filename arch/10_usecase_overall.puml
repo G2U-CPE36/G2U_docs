@@ -7,45 +7,41 @@ actor "Payment Gateway" as PaymentGateway
 actor "Shipping Company" as ShippingCompany
 
 rectangle "G2U" {
-    usecase "Browse Products" as BrowseProduct
-    usecase "View Product Details" as ViewProduct
-    usecase "User Profile" as UserProfile
-    usecase "Edit Profile" as EditProfile
-    usecase "View Liked Products" as LikedProducts
+    usecase "Create/Update Account Info" as AccountInfo
     usecase "View My Purchases" as MyPurchases
+    usecase "View Liked Products" as LikedProducts
+    usecase "Browse Products" as BrowseProducts
+    usecase "Filter Products" as FilterProducts
     usecase "Manage Posts" as ManagePosts
-    usecase "Post Want-to-Buy" as WantToBuy
-    usecase "Post Want-to-Sell" as WantToSell
-    usecase "Make a Payment" as MakePayment
-    usecase "Delete post" as DeletePost
-    usecase "Update post" as UpdatePost
-    usecase "Posts" as Posts
+    usecase "Post Products" as PostProducts
+    usecase "Update/Delete Products" as UpdateDeleteProducts
     usecase "Order System" as OrderSystem
+    usecase "Payment" as Payment
+    usecase "Shipping Status" as ShippingStatus
 }
 
-Buyer--> BrowseProduct
-Buyer --> UserProfile
-Buyer --> ManagePosts
+Buyer --> AccountInfo : "Provide Credentials"
+Buyer --> BrowseProducts : "Request Product List"
+BrowseProducts --> FilterProducts : "Apply Filters"
+BrowseProducts --> Buyer : "Receive Product List"
+Buyer --> MyPurchases : "View Purchase History"
+Buyer --> LikedProducts : "Access Liked Products"
+Buyer --> ManagePosts : "Manage Product Posts"
+ManagePosts --> PostProducts : "Add Product to Sell/Buy"
+ManagePosts --> UpdateDeleteProducts : "Modify/Delete Product Post"
+Seller --> AccountInfo : "Provide Seller Info"
+Seller --> ManagePosts : "Access Manage Posts"
+ManagePosts --> PostProducts : "Add Product for Online Selling"
+ManagePosts --> UpdateDeleteProducts : "Edit Product Details"
 
-Seller --> UserProfile
-Seller --> ManagePosts
 
-BrowseProduct --> ViewProduct
+Buyer --> OrderSystem : "Order Product"
+OrderSystem --> Seller : "Notify Seller of Order"
+OrderSystem --> Payment : "Initiate Payment"
+Payment --> PaymentGateway : "Process Payment"
+OrderSystem --> ShippingStatus : "Request Shipping Update"
+ShippingStatus --> ShippingCompany : "Track/Update Shipping"
+ShippingCompany --> Buyer : "Provide Shipping Details"
+ShippingCompany --> Seller : "Notify Seller of Shipping Status"
 
-
-ManagePosts --> DeletePost
-ManagePosts --> UpdatePost
-ManagePosts --> Posts
-
-Posts--> WantToBuy
-Posts--> WantToSell
-
-UserProfile --> LikedProducts
-UserProfile --> EditProfile
-UserProfile --> MyPurchases
-
-WantToBuy --> MakePayment
-WantToBuy  --> OrderSystem
-OrderSystem --> ShippingCompany
-MakePayment --> PaymentGateway
 @enduml
