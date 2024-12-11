@@ -162,7 +162,7 @@
 sort&compress]{natbib}		%Calls bibliography commands
 \usepackage{url}						%Supports url commands
 \usepackage{etex}						%eTeXÕs extended support for counters
-\usepackage{fixltx2e}					%Eliminates some in felicities of the
+%\usepackage{fixltx2e}					%Eliminates some in felicities of the
 %original LaTeX kernel
 \usepackage[english]{babel}		%For languages characters and hyphenation
 \usepackage[dvipsnames]{xcolor}              %Creates coloured text and background
@@ -181,7 +181,7 @@ sort&compress]{natbib}		%Calls bibliography commands
 \usepackage[version=0.96]{pgf}			%PGF/TikZ is a tandem of languages for producing vector graphics from a
 \usepackage{tikz}
 %geometric/algebraic description.
-\usetikzlibrary{arrows,shapes,snakes,
+\usetikzlibrary{arrows,shapes,
 	automata,backgrounds,
 	petri,topaths}				%To use diverse features from tikz
 %
@@ -310,7 +310,9 @@ sort&compress]{natbib}		%Calls bibliography commands
 \usepackage[shortlabels]{enumitem}
 \usepackage{pdfpages}
 \usepackage{etoolbox}
-% \usepackage{cite}
+\usepackage{tikz}
+\usetikzlibrary{decorations}
+\usepackage{lmodern} 
 
 \renewcommand\listoflistingscaption{Source Code Listings}
 \usepackage[scaled=0.95]{inconsolata}
@@ -420,6 +422,7 @@ sort&compress]{natbib}		%Calls bibliography commands
 	\printindex
 	\refstepcounter{chapter}
 	\renewcommand{\bibname}{References}
+%	\nocite{*}
 	\bibliographystyle{unsrtnat}
 	\bibliography{bibliography.bib} % TEMP
 \end{document}

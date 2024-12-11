@@ -7,45 +7,44 @@ actor "Payment Gateway" as PaymentGateway
 actor "Shipping Company" as ShippingCompany
 
 rectangle "G2U" {
-    usecase "Browse Products" as BrowseProduct
-    usecase "View Product Details" as ViewProduct
-    usecase "User Profile" as UserProfile
-    usecase "Edit Profile" as EditProfile
-    usecase "View Liked Products" as LikedProducts
-    usecase "View My Purchases" as MyPurchases
-    usecase "Manage Posts" as ManagePosts
-    usecase "Post Want-to-Buy" as WantToBuy
-    usecase "Post Want-to-Sell" as WantToSell
-    usecase "Make a Payment" as MakePayment
-    usecase "Delete post" as DeletePost
-    usecase "Update post" as UpdatePost
-    usecase "Posts" as Posts
+    usecase "Create/Update\n Account Info" as AccountInfo
+    usecase "View\n My Purchases" as MyPurchases
+    usecase "View\n Liked Products" as LikedProducts
+    usecase "Browse\n Products" as BrowseProducts
+    usecase "Filter\n Products" as FilterProducts
+    usecase "Manage\n Posts" as ManagePosts
+    usecase "Post\n Products" as PostProducts
+    usecase "Update/Delete\n Products" as UpdateDeleteProducts
     usecase "Order System" as OrderSystem
+    usecase "Payment" as Payment
+    usecase "Shipping\n Status" as ShippingStatus
 }
 
-Buyer--> BrowseProduct
-Buyer --> UserProfile
-Buyer --> ManagePosts
+Buyer --> AccountInfo : "Provide\n Buyer's Credentials"
+Seller --> AccountInfo : "Provide\n Seller's Credentials"
 
-Seller --> UserProfile
-Seller --> ManagePosts
+Buyer --> BrowseProducts : "Access Product List"
+BrowseProducts --> FilterProducts : "Apply Filters"
 
-BrowseProduct --> ViewProduct
+Buyer --> MyPurchases : "View Purchase History"
+Buyer --> LikedProducts : "Access Liked Products"
 
+Buyer --> ManagePosts : "Show interest\n to buy the\n product"
+Seller --> ManagePosts : "Access\n Manage Posts"
 
-ManagePosts --> DeletePost
-ManagePosts --> UpdatePost
-ManagePosts --> Posts
+ManagePosts --> PostProducts : "Add Product\n to Sell/Buy"
+ManagePosts --> UpdateDeleteProducts : "Modify/Delete\n Product Post"
 
-Posts--> WantToBuy
-Posts--> WantToSell
+Buyer --> OrderSystem : "Order Product"
+OrderSystem --> Seller : "Notify Seller of Order"
 
-UserProfile --> LikedProducts
-UserProfile --> EditProfile
-UserProfile --> MyPurchases
+OrderSystem --> Payment : "Initiate Payment"
+Payment --> PaymentGateway : "Process Payment"
 
-WantToBuy --> MakePayment
-WantToBuy  --> OrderSystem
-OrderSystem --> ShippingCompany
-MakePayment --> PaymentGateway
+OrderSystem --> ShippingStatus : "Request\n Shipping Update"
+ShippingStatus --> ShippingCompany : "Track/Update\n Shipping"
+
+ShippingCompany --> Buyer : "Provide\n Shipping Details"
+ShippingCompany --> Seller : "Notify\n Seller of Shipping Status"
 @enduml
+
