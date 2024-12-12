@@ -162,7 +162,7 @@
 sort&compress]{natbib}		%Calls bibliography commands
 \usepackage{url}						%Supports url commands
 \usepackage{etex}						%eTeXÕs extended support for counters
-\usepackage{fixltx2e}					%Eliminates some in felicities of the
+%\usepackage{fixltx2e}					%Eliminates some in felicities of the
 %original LaTeX kernel
 \usepackage[english]{babel}		%For languages characters and hyphenation
 \usepackage[dvipsnames]{xcolor}              %Creates coloured text and background
@@ -181,7 +181,7 @@ sort&compress]{natbib}		%Calls bibliography commands
 \usepackage[version=0.96]{pgf}			%PGF/TikZ is a tandem of languages for producing vector graphics from a
 \usepackage{tikz}
 %geometric/algebraic description.
-\usetikzlibrary{arrows,shapes,snakes,
+\usetikzlibrary{arrows,shapes,
 	automata,backgrounds,
 	petri,topaths}				%To use diverse features from tikz
 %
@@ -303,14 +303,16 @@ sort&compress]{natbib}		%Calls bibliography commands
 % math code and graph stuff
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
-\usepackage{listings}
 \usepackage{minted}
+\usepackage{listings}
 \usepackage{tikz-qtree}
 \usepackage{mdframed}
 \usepackage[shortlabels]{enumitem}
 \usepackage{pdfpages}
 \usepackage{etoolbox}
-% \usepackage{cite}
+\usepackage{tikz}
+\usetikzlibrary{decorations}
+\usepackage{lmodern}
 
 \renewcommand\listoflistingscaption{Source Code Listings}
 \usepackage[scaled=0.95]{inconsolata}
@@ -322,11 +324,12 @@ sort&compress]{natbib}		%Calls bibliography commands
 \definecolor{number}{HTML}{005CC5}
 
 \lstset{language=C++,frame=single,basicstyle=\ttfamily \small,showstringspaces=false,columns=flexible}
-\lstset{
-	literate={̦}{{\"o}}1
-	{\CC?}{{\"a}}1
-	{\CC?}{{\"u}}1
-}
+% Enable this when you turn on UTF-8
+%\lstset{
+%	literate={̦}{{\"o}}1
+%	{\CC?}{{\"a}}1
+%	{\CC?}{{\"u}}1
+%}
 \lstset{xleftmargin=15pt,xrightmargin=5pt}
 \lstset{aboveskip=12pt,belowskip=8pt}
 
@@ -382,42 +385,45 @@ sort&compress]{natbib}		%Calls bibliography commands
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	\frontmatter
-	\pagenumbering{roman}
-	\input{frontmatter/title} % TEMP
-	\input{frontmatter/versioning} % TEMP
-	\input{frontmatter/abstract} % TEMP
+\frontmatter
+\pagenumbering{roman}
+\input{frontmatter/title} % TEMP
+%	\input{frontmatter/versioning} % TEMP
+\input{frontmatter/abstract} % TEMP
 %	\input{frontmatter/acknowledgment} % TEMP
-	\input{frontmatter/terminologies}
+\input{frontmatter/terminologies}
 %	\maketitle
-	\clearpage
-	\tableofcontents*
-	\clearpage
-	\listoftables
+\clearpage
+\tableofcontents*
+\clearpage
+%	\listoftables
+\lstlistoflistings
 %	\clearpage
-	\listoffigures
-	\clearpage
+\listoffigures
+\clearpage
 
-	\mainmatter
-	\part{Project Description}
-	\import{chapters/ch-01/}{chap_1} % Background
-	\import{chapters/ch-02/}{chap_2} % Project Framework
-	\part{Requirements}
-	\import{chapters/ch-03/}{chap_3} % Requirements Elicitation
+\mainmatter
+\part{Project Description}
+\import{chapters/ch-01/}{chap_1} % Background
+\import{chapters/ch-02/}{chap_2} % Project Framework
+\part{Requirements}
+\import{chapters/ch-03/}{chap_3} % Requirements Elicitation
 %	\import{chapters/ch-03/}{chap_3_1}
-	\part{Design and Development}
-	\import{chapters/ch-04/}{chap_4} % System Design
-	\import{chapters/ch-05/}{chap_5} % Implementation
-	\part{Test and Evaluation}
-	\import{chapters/ch-06/}{chap_6} % Evaluation of outcomes
-	\import{chapters/ch-07/}{chap_7} % Conclusion
+\part{Design and Development}
+\import{chapters/ch-04/}{chap_4} % System Design
+\import{chapters/ch-05/}{chap_5} % Implementation
+\part{Test and Evaluation}
+\import{chapters/ch-06/}{chap_6} % Evaluation of outcomes
+\import{chapters/ch-07/}{chap_7} % Conclusion
 
 %	\includegraphics[width=0.4\textwidth]{frontmatter/KMUTT_CI.png}
 %
-	\backmatter
-	\printindex
-	\refstepcounter{chapter}
-	\renewcommand{\bibname}{References}
-	\bibliographystyle{unsrtnat}
-	\bibliography{bibliography.bib} % TEMP
+\backmatter
+\appendix
+\printindex
+\refstepcounter{chapter}
+\renewcommand{\bibname}{References}
+%	\nocite{*}
+\bibliographystyle{unsrtnat}
+\bibliography{bibliography.bib} % TEMP
 \end{document}
